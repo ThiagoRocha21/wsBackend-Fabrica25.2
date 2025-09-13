@@ -1,12 +1,12 @@
 from .models import Usuario, Receitas, Categorias
 from django import forms 
 
-class UsuarioForm:
+class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario 
         fields = '__all__'
 
-        label = {
+        labels = {
             "nome" : "Nome",
             "email" : "E-mail",
             "usuario" : "Usuário",
@@ -17,15 +17,15 @@ class UsuarioForm:
             "nome" : forms.TextInput(attrs={"placeholder": "João Maneiro da Silva"}),
             "email" : forms.TextInput(attrs={"placeholder":"joaomaneiro23@gmail.com"}),
             "usuario" : forms.TextInput(attrs={"placeholder": "JoaoManeiro"}),
-            "senha" : forms.TextInput(attrs={"placeholder": ""}),
+            "senha" : forms.PasswordInput(attrs={"placeholder": ""}),
         }
 
-class ReceitaForm:
+class ReceitaForm(forms.ModelForm):
     class Meta:
         model = Receitas
         fields = '__all__'
 
-        label = {
+        labels = {
             "nome_receita" : "Nome da Receita",
             "descricao" : "Descrição",
             "ingredientes" : "Ingredientes",

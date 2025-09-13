@@ -1,8 +1,9 @@
-from django.contrib import admin
 from django.urls import path
-from app_receitas.views import home
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', home),
+    path('', views.CadastrarReceitaView, name='receitas_url'),
+    path('show/', views.MostrarReceitaView, name='show_url'),
+    path('up/<int:f_id>', views.AtualizarReceitaView, name= 'update_url'),
+    path('del/<int:f_id>', views.deleteReceitaView, name= 'delete_url'),
 ]
