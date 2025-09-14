@@ -56,7 +56,7 @@ Veja a seção **[Implantação](#-implantação)** para informações sobre col
 - Tela para adicionar e editar receitas com formulário amigável (usando crispy forms).  
 - Visualização das receitas cadastradas com ações de atualizar e excluir.  
 - Confirmação antes de excluir uma receita.  
-- Integração com API externa para buscar receitas (`/api-receitas/`).
+- Integração com API externa para buscar receitas de massa (`/receitas-externas/`).
 
 
 ### 🛠️ Construído com
