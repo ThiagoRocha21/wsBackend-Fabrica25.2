@@ -68,3 +68,7 @@ django-crispy-forms
  - Formulários estilizados
 requests
  - Consumo de API externa
+
+### 📞 Contatos
+- 🟦 [LinkedIn](https://www.linkedin.com/in/thiago-de-barros-c-rocha-9b846a296/)
+- 🟩 [WhatsApp](wa.me/5583996994604)
