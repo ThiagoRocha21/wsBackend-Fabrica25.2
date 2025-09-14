@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReceitaForm
-from .models import Receitas
+from .models import Receitas, Categoria
+
+
 
 def CadastrarReceitaView(request):
     if request.method == 'POST':
@@ -16,7 +18,7 @@ def CadastrarReceitaView(request):
 
 def MostrarReceitaView(request):
     obj = Receitas.objects.all()
-    return render(request, "receitas/paginas/cadastrar.html", {"obj": obj})
+    return render(request, "receitas/paginas/exibir.html", {"obj": obj})
 
 def AtualizarReceitaView(request, f_id):
     obj = get_object_or_404(Receitas, id=f_id)
@@ -37,3 +39,14 @@ def deleteReceitaView(request, f_id):
         obj.delete()
         return redirect("show_url")
     return render(request, "receitas/paginas/confirmacao.html", {"obj": obj})
+
+
+def criar_categorias():
+    categorias = ['Sobremesas', 'Massas', 'Saladas']
+    for nome in categorias:
+        # Usa get_or_create para evitar duplicatas
+        categoria, created = Categoria.objects.get_or_create(nome=nome)
+        if created:
+            print(f"Categoria '{nome}' criada.")
+        else:
+            print(f"Categoria '{nome}' já existe.")

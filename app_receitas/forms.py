@@ -10,10 +10,12 @@ class ReceitaForm(forms.ModelForm):
             "nome_receita" : "Nome da Receita",
             "descricao" : "Descrição",
             "ingredientes" : "Ingredientes",
+            "categoria": "Categoria",
         }
 
         widgets = {
             "nome_receita" : forms.TextInput(attrs={"placeholder" : "Pudim de leite"}),
             "descricao" : forms.TextInput(attrs={"placeholder": "Pudim de leite fácil e rápido"}),
             "ingredientes" : forms.TextInput(attrs={"placeholder": "Leite, 2x ovos..."}),
+            "categoria": forms.Select(), 
         }
