@@ -6,7 +6,7 @@ Desafio da Fábrica de Software 25.2: Projeto Django com as entidades **Receitas
 
 Este guia vai te ajudar a configurar o projeto localmente para desenvolvimento e testes.
 
-Veja a seção **[Implantação](#-implantação)** para informações sobre colocar o projeto em produção.
+Veja a seção **[Implantação](#-implantação)** para informações sobre colocar o projeto emprodução.
 
 ### 📋 Pré-requisitos
 
