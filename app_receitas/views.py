@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import UsuarioForm, ReceitaForm
+from .forms import ReceitaForm
 from .models import Receitas
 
 def CadastrarReceitaView(request):
