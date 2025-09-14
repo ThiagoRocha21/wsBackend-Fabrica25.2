@@ -6,7 +6,7 @@ Desafio da Fábrica de Software 25.2: Projeto Django com as entidades **Receitas
 
 Este guia vai te ajudar a configurar o projeto localmente para desenvolvimento e testes.
 
-Veja a seção **[Implantação](#-implantação)** para informações sobre colocar o projeto em produção.
+Veja a seção **[Implantação](#-implantação)** para informações sobre colocar o projeto emprodução.
 
 ### 📋 Pré-requisitos
 
@@ -68,3 +68,7 @@ django-crispy-forms
  - Formulários estilizados
 requests
  - Consumo de API externa
+
+### 📞 Contatos
+- 🟦 [LinkedIn](https://www.linkedin.com/in/thiago-de-barros-c-rocha-9b846a296/)
+- 🟩 WhatsApp - [55 83 996994604](https://wa.me/5583996994604)
