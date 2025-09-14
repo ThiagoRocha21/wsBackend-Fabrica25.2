@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReceitaForm
 from .models import Receitas, Categoria
+import requests
+from django.http import JsonResponse
 
 
 
@@ -44,9 +46,22 @@ def deleteReceitaView(request, f_id):
 def criar_categorias():
     categorias = ['Sobremesas', 'Massas', 'Saladas']
     for nome in categorias:
-        # Usa get_or_create para evitar duplicatas
         categoria, created = Categoria.objects.get_or_create(nome=nome)
         if created:
             print(f"Categoria '{nome}' criada.")
         else:
             print(f"Categoria '{nome}' já existe.")
+
+
+def receitas_externas(request):
+    url = "https://www.themealdb.com/api/json/v1/1/search.php?s=pasta"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        return JsonResponse(data) 
+    else:
+        return JsonResponse({"erro": "API externa indisponível"}, status=500)
+    
+def mostrar_receitas_api(request):
+    return render(request, 'receitas/paginas/api_receitas.html')

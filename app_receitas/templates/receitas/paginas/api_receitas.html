@@ -1,0 +1,66 @@
+{% extends 'receitas/parciais/head.html' %}
+
+{% block title %}
+  <title>Receitas Externas</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Receitas Externas (API)</h1>
+
+  <div id="loading" class="alert alert-info">Carregando receitas...</div>
+
+  <div id="error" class="alert alert-danger d-none"></div>
+
+  <div id="receitas-list" class="row"></div>
+</div>
+
+<script>
+  async function carregarReceitas() {
+    const loading = document.getElementById('loading');
+    const errorDiv = document.getElementById('error');
+    const receitasList = document.getElementById('receitas-list');
+
+    try {
+      const response = await fetch("{% url 'api_receitas' %}");
+      if (!response.ok) {
+        throw new Error('Erro ao carregar dados da API.');
+      }
+      const data = await response.json();
+
+      loading.style.display = 'none';
+
+      if (!data.meals) {
+        receitasList.innerHTML = '<p>Nenhuma receita encontrada.</p>';
+        return;
+      }
+      receitasList.innerHTML = '';
+
+      data.meals.forEach(receita => {
+        const card = document.createElement('div');
+        card.className = 'col-md-4 mb-4';
+
+        card.innerHTML = `
+          <div class="card h-100">
+            <img src="${receita.strMealThumb}" class="card-img-top" alt="${receita.strMeal}">
+            <div class="card-body">
+              <h5 class="card-title">${receita.strMeal}</h5>
+              <p class="card-text">${receita.strInstructions.substring(0, 100)}...</p>
+              <a href="${receita.strSource || '#'}" target="_blank" class="btn btn-primary btn-sm">Ver Receita</a>
+            </div>
+          </div>
+        `;
+
+        receitasList.appendChild(card);
+      });
+
+    } catch (error) {
+      loading.style.display = 'none';
+      errorDiv.textContent = error.message;
+      errorDiv.classList.remove('d-none');
+    }
+  }
+
+  window.onload = carregarReceitas;
+</script>
+{% endblock %}
