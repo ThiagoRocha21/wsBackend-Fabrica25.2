@@ -71,4 +71,4 @@ requests
 
 ### 📞 Contatos
 - 🟦 [LinkedIn](https://www.linkedin.com/in/thiago-de-barros-c-rocha-9b846a296/)
-- 🟩 [WhatsApp](wa.me/5583996994604)
+- 🟩 WhatsApp - [55 83 996994604](https://wa.me/5583996994604)
